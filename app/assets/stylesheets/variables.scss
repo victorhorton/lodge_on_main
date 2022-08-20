@@ -1,2 +1,25 @@
-$primary: #6A554F;
-$secondary: #FAF3E7;
+$primary: #FAF3E7;
+$secondary: #6A554F;
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+// Font
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-weight: 300;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+nav {
+  transition: top 0.3s;
+}
