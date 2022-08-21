@@ -17,3 +17,19 @@ $(document).bind('scroll', e => {
     $('.navbar').addClass('bg-light');
   }
 })
+
+$(document).ready(setTimeout(typeWriter, 50))
+
+var i = 0;
+var typeWriterCompany = 'The Lodge on Main: More than a brewery'; /* The text */
+var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < typeWriterCompany.length) {
+
+    document.getElementById("company-typewriter").innerHTML += typeWriterCompany.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+
+  }
+}

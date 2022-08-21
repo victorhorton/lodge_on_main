@@ -11,6 +11,12 @@
   </head>
 
   <body class="container">
+    <%= video_tag "stock_video.mp4",
+      autoplay: :autoplay,
+      loop: :loop,
+      muted: :muted,
+      id: "background-video" 
+    %>   
     <%= render(partial: 'layouts/navbar')%>
     <%= yield %>
     <%= render(partial: 'layouts/footer')%>
