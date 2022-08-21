@@ -1,0 +1,20 @@
+<div class="row p-6 bg-primarya align-items-center justify-content-center vh-75 my-5">\
+  <div class="col d-flex justify-content-center">
+    <%= link_to(
+      fa_icon('chevron-left'),
+      photo_path(@previous_photo_id),
+      class: ''
+    ) unless @previous_photo_id == nil %>
+  </div>
+  <%= image_tag(
+    @photo.image,
+    class: 'col w-75'
+  ) %>
+  <div class="col d-flex justify-content-center">
+    <%= link_to(
+      fa_icon('chevron-right'),
+      photo_path(@next_photo_id),
+      class: ''
+    ) unless @next_photo_id == nil %> 
+  </div>
+</div>

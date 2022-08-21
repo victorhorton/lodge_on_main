@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container">
+  <body>
     <%= video_tag "stock_video.mp4",
       autoplay: :autoplay,
       loop: :loop,
@@ -18,7 +18,10 @@
       id: "background-video" 
     %>   
     <%= render(partial: 'layouts/navbar')%>
-    <%= yield %>
+    <main class="container">
+      <%= render(partial: 'partials/flash_messages') %>
+      <%= yield %>
+    </main>
     <%= render(partial: 'layouts/footer')%>
   </body>
 </html>

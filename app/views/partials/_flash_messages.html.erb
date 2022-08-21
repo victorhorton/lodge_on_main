@@ -1,0 +1,29 @@
+<div class="row mt-6">  
+  <% if flash[:notice].present? %>
+    <div class="alert alert-primary alert-dismissible fade show flash-alert <%= flash[:remain] ? 'flash-remain ' : '' %>rounded-0">
+      <%= flash[:notice] %>
+      <%= alert_close_button %>
+    </div>
+  <% end %>
+  <% if flash[:success].present? %>
+    <div class="alert alert-success alert-dismissible fade show flash-alert <%= flash[:remain] ? 'flash-remain ' : '' %>rounded-0">
+      <%= flash[:success] %>
+      <%= alert_close_button %>
+    </div>
+  <% end %>
+  <% if flash[:warn].present? %>
+    <div class="alert alert-warning alert-dismissible fade show flash-alert <%= flash[:remain] ? 'flash-remain ' : '' %>rounded-0">
+      <%= sanitize(flash[:warn]) %>
+      <%= alert_close_button %>
+    </div>
+  <% end %>
+  <% if flash[:error].present? %>
+    <div class="alert alert-danger alert-dismissible fade show flash-alert <%= flash[:remain] ? 'flash-remain ' : '' %>rounded-0">
+      <%= flash[:error] %>
+      <% if flash[:restore].present? %>
+        <%= link_to('Click to restore.', flash[:restore], method: :patch, class: 'btn-link') %>
+      <% end %>
+      <%= alert_close_button %>
+    </div>
+  <% end %>
+</div>

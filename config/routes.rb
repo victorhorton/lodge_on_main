@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :events, only: :index
   resources :lodgings, only: :index
   resources :merchandise, only: :index
-  resources :photos, only: :index
+  resources :photos, only: [:index, :new, :create, :show]
   resources :taps, only: :index
 end
