@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :lodgings, only: :index
   resources :merchandise, only: :index
   resources :photos, only: [:index, :new, :create, :show]
-  resources :taps, only: :index
+  resources :taps, only: [:index, :edit, :update, :show]
 end

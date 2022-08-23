@@ -1,21 +1,13 @@
-$(document).on('click', '.js-nav-bars', e => {
-  $('.uncollapsed-nav-bar').removeClass('d-none');
-  $('.collapsed-nav-bar').addClass('d-none');
-});
 
-$(document).on('click', '.js-nav-x', e => {
-  $('.collapsed-nav-bar').removeClass('d-none');
-  $('.uncollapsed-nav-bar').addClass('d-none');
-});
+let scrollPosition = 0;
 
-$(document).bind('scroll', e => {
-  if (window.pageYOffset > 10) {
-    $('.navbar').addClass('bg-transparent');
-    $('.navbar').removeClass('bg-light');
+$(document).bind('scroll', event => {
+  if (window.pageYOffset > scrollPosition) {
+    $('.navbar').addClass('d-none');
   } else {
-    $('.navbar').removeClass('bg-transparent');
-    $('.navbar').addClass('bg-light');
+    $('.navbar').removeClass('d-none');
   }
+  scrollPosition = window.pageYOffset;
 })
 
 $(document).ready(setTimeout(typeWriter, 50))

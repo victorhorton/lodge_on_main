@@ -1,20 +1,23 @@
-<% @events.each do |event| %>
-  <div class="row bg-primary p-3">
-    <div class="col">   
-      <%= event.title %>
+<div class="col justify-content-center m-3">  
+  <% @events.each do |event| %>
+    <div class="row bg-dark text-light p-5">
+      <div class="col-md-3">
+        <div class="row">
+          <h1><%= week_day(event.date) %></h1>
+        </div>
+        <div class="row">
+          <p><%= readable_date(event.date) %></p>
+        </div>
+      </div>
+      <div class="col-md-5">   
+        <h2><%= event.title.titleize %></h2>
+        <p><%= event.description.titleize %></p>
+      </div>
+      <div class="col-md-4">
+        <div class="row">  
+          <p class="col"><%= format_time(event.start_time) %> - <%= format_time(event.end_time) %></p>
+        </div>
+      </div>
     </div>
-    <div class="col">   
-      <%= event.description %>
-    </div>
-    <div class="col">
-      <%= week_day(event.date) %>
-      <%= readable_date(event.date) %>
-    </div>
-    <div class="col">   
-      <%= format_time(event.start_time) %>
-    </div>
-    <div class="col">   
-      <%= format_time(event.end_time) %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

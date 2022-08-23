@@ -1,5 +1,6 @@
 $primary: #FAF3E7;
 $secondary: #6A554F;
+$dark: #161616;
 
 // Breakpoints
 $bp-sm: 576px;
@@ -13,6 +14,12 @@ $bp-xxl: 1400px;
 h1 {
   font-family: 'Abril Fatface', cursive;
   font-weight: 300;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 10px;
 }
 
 p {
