@@ -1,6 +1,6 @@
 <div class="row justify-content-center m-3">
   <% @photos.each do |photo| %>
-    <div class="col-lg-4 bg-primary p-3 opacity-95">
+    <div class="col-lg-4 bg-primary p-3">
       <%= link_to(
         image_tag(photo.image, class: 'img-thumbnail rounded mw-100'),
         photo_path(photo.id)

@@ -7,6 +7,21 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      flash[:success] = "Event Updated"
+      redirect_to events_path
+    else
+      flash.now[:warn] = "Updated Failed"
+      render :new 
+    end
+  end
+
   def create
     @event = Event.new(event_params)
 
@@ -14,7 +29,7 @@ class EventsController < ApplicationController
       flash[:success] = "Event Saved"
       redirect_to events_path
     else
-      flash.now[:warn] = "Event didn't save"
+      flash.now[:warn] = "Save failed"
       render :new 
     end
   end

@@ -19,6 +19,17 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    if @photo.destroy
+      flash[:warn] = "Image Deleted"
+      redirect_to photos_path
+    else
+      flash[:warn] = "Image Deleted"
+      render :show
+    end
+  end
+
   def show
     @photo = Photo.find(params[:id])
     @photo_ids = Photo.all.ids

@@ -1,16 +1,35 @@
-<div class="row p-6 bg-primarya align-items-center justify-content-center vh-75 my-5">\
-  <div class="col d-flex justify-content-center">
+<div class="row p-6 top-25 align-items-center justify-content-center vh-75 py-5">
+  <div class="col-1 d-flex justify-content-center">
     <%= link_to(
       fa_icon('chevron-left'),
       photo_path(@previous_photo_id),
       class: ''
     ) unless @previous_photo_id == nil %>
   </div>
-  <%= image_tag(
-    @photo.image,
-    class: 'col w-75'
-  ) %>
-  <div class="col d-flex justify-content-center">
+  <div class="col-10 align-items-center">
+    <div class="row">
+      <%= image_tag(
+        @photo.image,
+        class: 'img-fluid'
+      ) %>
+    </div>
+    <div class="row mt-1">
+      <div class="col-2 mx-auto">
+        <%= form_with(model: @photo, method: :delete, class: 'form p-3') do |f| %>
+          <%= f.hidden_field(
+            :id,
+            value: @photo.id
+          ) %>
+          <%= f.submit(
+            'Delete Photo',
+            data: { confirm: 'Delete Photo?' },
+            class: 'btn btn-danger'
+          ) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-1 d-flex justify-content-center">
     <%= link_to(
       fa_icon('chevron-right'),
       photo_path(@next_photo_id),

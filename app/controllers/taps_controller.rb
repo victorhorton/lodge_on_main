@@ -9,7 +9,13 @@ class TapsController < ApplicationController
 
   def update
     @beer = Tap.find(params[:id])
-    @beer.update(tap_params)
+    if @beer.update(tap_params)
+      flash[:success] = "Beer Updated"
+      redirect_to taps_path
+    else
+      flash.now[:warn] = "Beer didn't update"
+      render :new 
+    end
   end
 
   def show
@@ -19,6 +25,6 @@ class TapsController < ApplicationController
   private
 
   def tap_params
-    params.require(:tap).permit(:title, :descritption, :position, :in_stock)
+    params.require(:tap).permit(:title, :description, :position, :in_stock)
   end
 end

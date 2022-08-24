@@ -1,23 +1,30 @@
-<div class="col justify-content-center m-3">  
+<div class="col justify-content-center m-3">
+  <div class="row my-2">
+    <%= link_to(
+      'Create Event',
+      new_event_path,
+      class: 'btn btn-primary'
+    ) %>
+  </div>
   <% @events.each do |event| %>
-    <div class="row bg-dark text-light p-5">
-      <div class="col-md-3">
-        <div class="row">
-          <h1><%= week_day(event.date) %></h1>
+    <%= link_to(edit_event_path(event), class: 'row bg-dark text-light text-decoration-none p-5') do %>
+        <div class="col-md-3">
+          <div class="row">
+            <h1><%= week_day(event.date) %></h1>
+          </div>
+          <div class="row">
+            <p><%= readable_date(event.date) %></p>
+          </div>
         </div>
-        <div class="row">
-          <p><%= readable_date(event.date) %></p>
+        <div class="col-md-5">   
+          <h2><%= event.title.titleize %></h2>
+          <p><%= event.description.titleize %></p>
         </div>
-      </div>
-      <div class="col-md-5">   
-        <h2><%= event.title.titleize %></h2>
-        <p><%= event.description.titleize %></p>
-      </div>
-      <div class="col-md-4">
-        <div class="row">  
-          <p class="col"><%= format_time(event.start_time) %> - <%= format_time(event.end_time) %></p>
+        <div class="col-md-4">
+          <div class="row">  
+            <p class="col"><%= format_time(event.start_time) %> - <%= format_time(event.end_time) %></p>
+          </div>
         </div>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

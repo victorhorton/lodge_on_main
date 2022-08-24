@@ -2,33 +2,35 @@
   <% @beers.each do |beer| %>
     <div class="col">
       <div class="card h-100">
-        <div class="card-body <%= beer.in_stock ? '' : ' text-muted' %>">
-          <div class="row">
-            <div class="col">
-              <h1 class="card-title"><%= beer.position %></h1>
-              <h5 class="card-title"><%= beer.title %></h5>
-              <p class="card-text"><%= beer.in_stock ? beer.description : 'OUT OF STOCK' %></p>
-            </div>
-            <div class="col-auto">
-              <div class="row align-items-end h-50">
-                <%= fa_icon(
-                  'sort-up 2x',
-                  class: "ajax-update-position",
-                  'data-id': "#{beer.id}",
-                  'data-position': "#{beer.position - 1}"
-                  ) %>
+        <%= link_to(edit_tap_path(beer), class: 'btn stretched-link') do %>
+          <div class="card-body <%= beer.in_stock ? '' : ' text-muted' %>">
+            <div class="row">
+              <div class="col">
+                <h1 class="card-title"><%= beer.position %></h1>
+                <h5 class="card-title"><%= beer.title %></h5>
+                <p class="card-text"><%= beer.in_stock ? beer.description : 'OUT OF STOCK' %></p>
               </div>
-              <div class="row h-50">
-                <%= fa_icon(
-                  'sort-down 2x',
-                  class: "ajax-update-position",
-                  'data-id': "#{beer.id}",
-                  'data-position': "#{beer.position + 1}"
-                  ) %>
+              <div class="col-auto">
+                <div class="row h-50 align-items-end">
+                  <%= fa_icon(
+                    'sort-up 2x',
+                    class: "ajax-update-position",
+                    'data-id': "#{beer.id}",
+                    'data-position': "#{beer.position - 1}"
+                    ) %>
+                </div>
+                <div class="row h-50">
+                  <%= fa_icon(
+                    'sort-down 2x',
+                    class: "ajax-update-position",
+                    'data-id': "#{beer.id}",
+                    'data-position': "#{beer.position + 1}"
+                    ) %>
+                </div>               
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   <% end %>
