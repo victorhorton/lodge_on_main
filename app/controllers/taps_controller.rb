@@ -3,6 +3,10 @@ class TapsController < ApplicationController
     @beers = Tap.order(:position)
   end
 
+  def whats_on_tap
+    @beers = Tap.order(:position)
+  end
+
   def edit
     @beer = Tap.find(params[:id])
   end

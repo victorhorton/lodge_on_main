@@ -19,8 +19,8 @@
         </li>
         <li class="nav-item">
           <%= link_to(
-            'Events',
-            events_path,
+            "About Us",
+            about_us_path,
             class: 'nav-link'
           ) %>
         </li>
@@ -31,20 +31,34 @@
             class: 'nav-link'
           ) %>
         </li>
-        <li class="nav-item">
-          <%= link_to(
-            'Lodging',
-            lodgings_path,
-            class: 'nav-link'
-          ) %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(
-            'Photos',
-            photos_path,
-            class: 'nav-link'
-          ) %>
-        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-start dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <li>
+              <%= link_to(
+                'Events',
+                events_path,
+                class: 'dropdown-item'
+              ) %>
+            </li>
+            <li>
+              <%= link_to(
+                'Lodging',
+                lodgings_path,
+                class: 'dropdown-item'
+              ) %>
+            </li>
+            <li>
+              <%= link_to(
+                'Photos',
+                photos_path,
+                class: 'dropdown-item'
+              ) %>
+            </li>
+          </ul>
+        </li>        
       </ul>
     </div>
   </div>
