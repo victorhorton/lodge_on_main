@@ -1,4 +1,26 @@
 module FormatsHelper
+
+  def shorten_date(day)
+    case day
+    when 'Monday'
+      'Mon'
+    when 'Tuesday'
+      'Tues'
+    when 'Wednesday'
+      'Wed'
+    when 'Thursday'
+      'Thur'
+    when 'Friday'
+      'Fri'
+    when 'Saturday'
+      'Sat'
+    when 'Sunday'
+      'Sun'
+    else
+      'Incorrect Date'
+    end
+  end
+
   def week_day(date)
     date.strftime("%a")
   end

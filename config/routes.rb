@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :merchandise, only: :index
   resources :photos, only: [:index, :new, :create, :show, :destroy]
   resources :taps, path: 'taproom', only: [:index, :edit, :update, :show]
-  resources :store_hours, path: 'hours', only: [:new, :create, :edit, :update, :destroy]
+  resources :store_hours, path: 'hours'
 end

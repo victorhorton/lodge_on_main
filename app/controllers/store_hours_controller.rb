@@ -1,5 +1,9 @@
 class StoreHoursController < ApplicationController  
 
+  def index
+    @store_hours = StoreHour.all
+  end
+
   def create
     @store_hour = StoreHour.new(store_hours_params)
     if @store_hour.save

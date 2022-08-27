@@ -1,7 +1,8 @@
 class AccessController < ApplicationController
 
   def home
-    @store_hours = StoreHour.active.combined
+    @store_hours = StoreHour.active.week_days.combined
+    @holiday_hours = StoreHour.active.holidays.combined
   end
 
   def index

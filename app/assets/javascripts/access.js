@@ -25,3 +25,7 @@ function typeWriter() {
 
   }
 }
+
+$(document).on('click', '.js-table-row-link', e => {
+  window.location.href = `${e.currentTarget.dataset.url}`;
+})
