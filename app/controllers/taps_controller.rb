@@ -1,4 +1,7 @@
 class TapsController < ApplicationController
+
+  before_action :confirm_logged_in, except: [:index, :show, :whats_on_tap]
+
   def index
     @beers = Tap.order(:position)
   end

@@ -6,19 +6,6 @@ class StoreHour < ApplicationRecord
   scope :week_days, -> { where(day_type: 'week_day') }
   scope :holidays, -> { where(day_type: 'holiday') }
 
-  scope :combined, -> { group_by{
-    |a| [a.opening_time, a.closing_time, a.is_closed]
-  }.map do |a|
-    if a[0][2] == true
-      {opening_time: a[0][0], closing_time: a[0][1], days: ["#{a[1].first.day}"], is_closed: a[0][2]}
-    elsif a[1].length < 2
-      {opening_time: a[0][0], closing_time: a[0][1], days: ["#{a[1].first.day}"], is_closed: a[0][2]}
-    else
-      {opening_time: a[0][0], closing_time: a[0][1], days: ["#{a[1].first.day}", "#{a[1].last.day}"], is_closed: a[0][2]}
-    end
-  end
-  }
-
   enum day_type: {
     week_day: 1,
     holiday: 2,
@@ -29,6 +16,19 @@ class StoreHour < ApplicationRecord
     def active
       where(is_active: true)
     end
+
+    def combined
+      select{ |store_hour|
+        binding.pry
+      }
+    end
+  end
+
+  def has_same_value(store_hour)
+    store_hour.id < id &&
+    store_hour.opening_time == opening_time &&
+    store_hour.closing_time == closing_time &&
+    store_hour.is_closed == is_closed
   end
 
   private

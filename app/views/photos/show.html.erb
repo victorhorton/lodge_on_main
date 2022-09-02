@@ -13,21 +13,23 @@
         class: 'img-fluid'
       ) %>
     </div>
-    <div class="row mt-1">
-      <div class="col-2 mx-auto">
-        <%= form_with(model: @photo, method: :delete, class: 'form p-3') do |f| %>
-          <%= f.hidden_field(
-            :id,
-            value: @photo.id
-          ) %>
-          <%= f.submit(
-            'Delete Photo',
-            data: { confirm: 'Delete Photo?' },
-            class: 'btn btn-danger'
-          ) %>
-        <% end %>
+    <% if session[:id].present? %>
+      <div class="row mt-1">
+        <div class="col-2 mx-auto">
+          <%= form_with(model: @photo, method: :delete, class: 'form p-3') do |f| %>
+            <%= f.hidden_field(
+              :id,
+              value: @photo.id
+            ) %>
+            <%= f.submit(
+              'Delete Photo',
+              data: { confirm: 'Delete Photo?' },
+              class: 'btn btn-danger'
+            ) %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <div class="col-1 d-flex justify-content-center">
     <%= link_to(

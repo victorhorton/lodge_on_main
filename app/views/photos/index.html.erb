@@ -4,7 +4,7 @@
       'Add Photo',
       new_photo_path,
       class: 'btn btn-primary'
-    ) %>
+    ) if session[:id].present? %>
   </div>  
   <% @photos.each do |photo| %>
     <div class="col-lg-4 bg-primary p-3">

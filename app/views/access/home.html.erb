@@ -7,46 +7,28 @@
   <div class="row bg-primary h-auto p-5 opacity-95">
     <div class="col-md">
       <h1 class="">Visit Us</h1>
-      <p>Come see us in the heart of the Rost District, Broken Arrow, Oklahoma!</p>
-      <p class="">The Lodge on Main is not only the place to book your Private Event, but also a place to build commmunity and enjoy Oklahoma crafted beer and good times with family and friends!</p>
+<!--       <p>Come see us in the heart of the Rost District, Broken Arrow, Oklahoma!</p>
+      <p class="">The Lodge on Main is not only the place to book your Private Event, but also a place to build commmunity and enjoy Oklahoma crafted beer and good times with family and friends!</p> -->
         <% @store_hours.each do |store_hour| %>
           <div class="row">
-              <h5 class="col-12 col-sm-4 col-md-12 col-lg-5">
-                <% store_hour[:days].each_with_index do |day, idx| %>
-                  <%= shorten_date(day).pluralize %>
-                  <% if store_hour[:days].length > 1 && idx < store_hour[:days].length - 1 %>
-                    -
-                  <% end %>
-                <% end %>  
-              </h5>
-              <% if store_hour[:is_closed] %>
-                <p class="col-auto">Closed</p>
-              <% else %>
-                <p class="col-auto"><%= format_time(store_hour[:opening_time]) %></p>
-                <p class="col-auto">-</p>
-                <p class="col-auto"><%= format_time(store_hour[:closing_time]) %></p>
+            <h5 class="col-sm-6">
+              <% store_hour[1].each_with_index do |store_day, idx| %>
+                <% if store_hour[1].length == idx + 1 %>
+                  <%= store_day.day %>
+                <% else %>
+                  <%= store_day.day %>, 
+                <% end %>
               <% end %>
-          </div>
-        <% end %>
-        <% @holiday_hours.each do |store_hour| %>
-          <div class="row">
-              <h5 class="col-12 col-sm-4 col-md-12 col-lg-5">
-                <% store_hour[:days].each_with_index do |day, idx| %>
-                  <%= day %>
-                  <% if store_hour[:days].length > 1 && idx < store_hour[:days].length - 1 %>
-                    -
-                  <% end %>
-                <% end %>  
-              </h5>
-              <% if store_hour[:is_closed] %>
-                <p class="col-auto">Closed</p>
+            </h5>
+            <p class="col-sm-6">
+              <% if store_hour[0][2] %>
+                CLOSED
               <% else %>
-                <p class="col-auto"><%= format_time(store_hour[:opening_time]) %></p>
-                <p class="col-auto">-</p>
-                <p class="col-auto"><%= format_time(store_hour[:closing_time]) %></p>
+                <%= format_time store_hour[0][0] %> - <%= format_time store_hour[0][1] %>
               <% end %>
+            </p>
           </div>
-        <% end %>        
+        <% end %>     
     </div>
     <div class="col-md ratio ratio-4x3">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.7118530447524!2d-95.79328538470402!3d36.05173761717027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b68bc237baa627%3A0xedb89de00053396f!2s118%20S%20Main%20St%2C%20Broken%20Arrow%2C%20OK%2074012!5e0!3m2!1sen!2sus!4v1661052863766!5m2!1sen!2sus" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

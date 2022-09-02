@@ -57,9 +57,24 @@
                 class: 'dropdown-item'
               ) %>
             </li>
+            <li>
+              <%= link_to(
+                'Hours',
+                store_hours_path,
+                class: 'dropdown-item'
+              ) if session[:id].present? %>
+            </li>
           </ul>
         </li>        
       </ul>
     </div>
+    <% if session[:id].present? %>
+      <div class="float-end">
+        <%= link_to(
+          fa_icon('sign-out'),
+          log_out_users_path,
+        ) %>
+      </div>
+    <% end %>
   </div>
 </nav>

@@ -1,0 +1,21 @@
+<div class="col bg-primary p-3 mt-3">
+  <h1>Log In</h1>
+
+  <%= form_with(
+    url: attempt_login_users_path,
+    local: true,
+    method: :post
+  ) do |f| %>
+    <div class="row m-2">
+      <%= f.label :email, class: 'form-label' %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="row m-2">
+      <%= f.label :password, class: 'form-label' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="row m-2">
+      <%= f.submit "Login", class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
