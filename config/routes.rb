@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/about-us', to: 'access#about_us'
   get 'location', to: 'access#locations'
   resources :events
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:new, :create, :edit, :update] do
     collection do
       get :login
       post :attempt_login
@@ -16,6 +16,4 @@ Rails.application.routes.draw do
   resources :photos, only: [:index, :new, :create, :show, :destroy]
   resources :taps, path: 'taproom', only: [:index, :edit, :update, :show]
   resources :store_hours, path: 'hours'
-
-  match '*path', via: :all, to: 'access#error_404'
 end

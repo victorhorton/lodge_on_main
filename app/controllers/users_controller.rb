@@ -23,6 +23,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(session[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Settings Updated"
+      redirect_to root_path
+    else
+      flash.now[:warn] = "#{@user.errors.full_messages.join(', ')}"
+      render :edit 
+    end      
+  end
+
   def login
   end
 

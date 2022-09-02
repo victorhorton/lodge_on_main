@@ -64,6 +64,13 @@
                 class: 'dropdown-item'
               ) if session[:id].present? %>
             </li>
+            <li>
+              <%= link_to(
+                'User Settings',
+                edit_user_path(session[:id]),
+                class: 'dropdown-item'
+              ) if session[:id].present? %>
+            </li>
           </ul>
         </li>        
       </ul>
@@ -71,8 +78,9 @@
     <% if session[:id].present? %>
       <div class="float-end">
         <%= link_to(
-          fa_icon('sign-out'),
+          fa_icon('sign-out 2x'),
           log_out_users_path,
+          class: 'btn btn-link'
         ) %>
       </div>
     <% end %>
