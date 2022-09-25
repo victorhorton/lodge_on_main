@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
-  database: lodge_on_main_production
-  username: lodge_on_main
-  password: <%= ENV['LODGE_ON_MAIN_DATABASE_PASSWORD'] %>
+  database: <%= ENV['RDS_DATABASE'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
