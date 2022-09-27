@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_09_01_231524) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "title"
     t.string "description"
   end
