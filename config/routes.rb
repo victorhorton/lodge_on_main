@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :lodgings, only: :index
   resources :merchandise, only: :index
-  resources :photos, only: [:index, :new, :create, :show, :destroy]
+  # resources :photos, only: [:index, :new, :create, :show, :destroy]
   resources :taps, path: 'taproom', only: [:index, :edit, :update, :show]
   resources :store_hours, path: 'hours'
 end
