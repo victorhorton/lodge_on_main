@@ -9,7 +9,7 @@
   <% @events.each do |event| %>
     <%= link_to(
       session[:id].present? ? edit_event_path(event) : event_path(event),
-      class: 'row bg-dark text-light text-decoration-none p-5'
+      class: 'row bg-dark text-light text-decoration-none p-5 my-5'
     ) do %>
       <div class="col-md-3">
         <div class="row">

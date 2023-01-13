@@ -10,16 +10,15 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  socket: /tmp/mysql.sock
+  username: lodge_on_main_user
+  password: lodge_on_main_password
 
 development:
   <<: *default
   database: lodge_on_main_development
-  username: lodge_on_main_user
-  password: lodge_on_main_password
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,8 +48,6 @@ development:
 #
 production:
   <<: *default
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  database: <%= ENV['LOM_DATABASE'] %>
+  username: <%= ENV['LOM_DATABASE_USER'] %>
+  password: <%= ENV['LOM_DATABASE_PASSWORD'] %>
