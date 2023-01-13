@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  extend Devise::Models
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
