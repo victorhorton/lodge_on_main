@@ -1,88 +1,88 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
+<nav class="navbar p-2 navbar-dark bg-dark">
   <div class="container-fluid">
     <%= link_to(
       image_tag('logo_main.png', width: '55x'),
       root_path,
       class: 'navbar-brand'
     ) %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+<!--     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> -->
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav navbar-nav-scroll me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to(
-            'Home',
-            root_path,
-            class: 'nav-link'
-          ) %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(
-            "About Us",
-            about_us_path,
-            class: 'nav-link'
-          ) %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(
-            "What's on Tap",
-            taps_path,
-            class: 'nav-link'
-          ) %>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More
-          </a>
-          <ul class="dropdown-menu dropdown-menu-lg-start dropdown-menu-dark" aria-labelledby="navbarDropdown">
-            <li>
-              <%= link_to(
-                'Events',
-                events_path,
-                class: 'dropdown-item'
-              ) %>
-            </li>
-            <li>
-              <%= link_to(
-                'Lodging',
-                lodgings_path,
-                class: 'dropdown-item'
-              ) %>
-            </li>
-            <!-- <li> -->
-              <%#= link_to(
-                'Photos',
-                photos_path,
-                class: 'dropdown-item'
-              ) %>
-            <!-- </li> -->
-            <li>
-              <%= link_to(
-                'Hours',
-                store_hours_path,
-                class: 'dropdown-item'
-              ) if session[:id].present? %>
-            </li>
-            <li>
+
+    <button class="navbar-toggler float-end" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="offcanvas bg-dark offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-light" id="offcanvasLabel">Navigation</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="list-group bg-dark">
+          <li class="list-group-item bg-dark text-light">
+            <%= link_to(
+              'Home',
+              root_path,
+              class: 'nav-link'
+            ) %>
+          </li>
+          <li class="list-group-item bg-dark text-light">
+            <%= link_to(
+              "About Us",
+              about_us_path,
+              class: 'nav-link'
+            ) %>
+          </li>
+          <li class="list-group-item bg-dark text-light">
+            <%= link_to(
+              "What's on Tap",
+              taps_path,
+              class: 'nav-link'
+            ) %>
+          </li>
+          <li class="list-group-item bg-dark text-light">
+            <%= link_to(
+              'Events',
+              events_path,
+              class: 'nav-link'
+            ) %>
+          </li>
+          <!-- <li class="list-group-item bg-dark text-light"> -->
+            <%#= link_to(
+              'Photos',
+              photos_path,
+              class: 'nav-link'
+            ) %>
+          <!-- </li> -->
+          <li class="list-group-item bg-dark text-light">
+            <%= link_to(
+              'Hours',
+              store_hours_path,
+              class: 'nav-link'
+            ) if session[:id].present? %>
+          </li>
+          <% if session[:id].present? %>
+            <li class="list-group-item bg-dark text-light">
               <%= link_to(
                 'User Settings',
                 edit_user_path(session[:id]),
-                class: 'dropdown-item'
-              ) if session[:id].present? %>
-            </li>
-          </ul>
-        </li>        
-      </ul>
-    </div>
-    <% if session[:id].present? %>
-      <div class="float-end">
-        <%= link_to(
-          fa_icon('sign-out 2x'),
-          log_out_users_path,
-          class: 'btn btn-link'
-        ) %>
+                class: 'nav-link'
+              ) %>
+            </li>  
+
+          <% end %>    
+        </ul>
       </div>
-    <% end %>
-  </div>
+      <div class="offcanvas-footer">
+        <% if session[:id].present? %>
+          <div class="float-end">
+            <%= link_to(
+              fa_icon('sign-out 2x'),
+              log_out_users_path,
+              class: 'btn btn-link'
+            ) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 </nav>

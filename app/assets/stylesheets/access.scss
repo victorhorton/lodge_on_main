@@ -23,3 +23,12 @@ body {
 .link-box:hover {
   box-shadow: 0px 0px 50px 10px black inset;
 }
+
+.hide-navbar {
+  top: -100px
+}
+
+#company-typewriter {
+  font-family: 'Abril Fatface', 'Copperplate', cursive;
+  font-weight: 300;
+}

@@ -1,20 +1,23 @@
 
-let scrollPosition = 0;
+// let scrollPosition = 0;
 
-$(document).bind('scroll', event => {
-  if (window.pageYOffset > scrollPosition) {
-    $('.navbar').addClass('d-none');
-  } else {
-    $('.navbar').removeClass('d-none');
-  }
-  scrollPosition = window.pageYOffset;
-})
+// $(document).bind('scroll', event => {
 
-$(document).ready(setTimeout(typeWriter, 50))
+//   debugger
+
+//   if (window.pageYOffset > scrollPosition) {
+//     $('.navbar').addClass('hide-navbar');
+//   } else {
+//     $('.navbar').removeClass('hide-navbar');
+//   }
+//   scrollPosition = window.pageYOffset;
+// })
+
+$(document).ready(setTimeout(typeWriter, 40))
 
 var i = 0;
 var typeWriterCompany = 'The Lodge on Main: More than a brewery'; /* The text */
-var speed = 50; /* The speed/duration of the effect in milliseconds */
+var speed = 40; /* The speed/duration of the effect in milliseconds */
 
 function typeWriter() {
   if (i < typeWriterCompany.length) {

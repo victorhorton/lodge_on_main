@@ -34,6 +34,6 @@ class StoreHour < ApplicationRecord
   private
 
   def titlelize_day
-    self.day = self.day.titleize
+    # self.day = self.day.titleize
   end
 end

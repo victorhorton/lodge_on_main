@@ -8,25 +8,3 @@ $bp-md: 768px;
 $bp-lg: 992px;
 $bp-xl: 1200px;
 $bp-xxl: 1400px;
-
-// Font
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Abril Fatface', 'Copperplate', cursive;
-  font-weight: 300;
-}
-
-p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-}
-
-nav {
-  transition: top 0.3s;
-}
