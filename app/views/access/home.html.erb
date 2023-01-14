@@ -1,10 +1,17 @@
+  <%= video_tag "stock_video.mp4",
+    autoplay: :autoplay,
+    loop: :loop,
+    muted: :muted,
+    id: "background-video" 
+  %>    
 <div class="row align-items-center vh-100">
   <div class="row h-auto text-light text-shadow-1">
     <h1 id="company-typewriter" class="text-center"></h1>
   </div>
 </div>
 <div class="row align-items-center vh-100">
-  <div class="row bg-primary h-auto p-5 opacity-95">
+
+  <div class="row h-auto p-5">
     <div class="col-md">
       <h1>Visit Us</h1>
       <p>We can’t wait to serve you!</p>
@@ -17,7 +24,7 @@
   </div>
 </div>
 <div class="row align-items-center vh-100">
-  <div class="row bg-primary h-auto p-5 opacity-95">
+  <div class="row h-auto p-5">
     <div class="col-md">
 
       <h1>Hours</h1>
@@ -45,7 +52,7 @@
   </div>
 </div>
 <div class="row align-items-center vh-100">
-  <div class="row bg-primary h-auto p-5 opacity-95">
+  <div class="row h-auto p-5">
     <h1 class="">Taproom</h1>
     <p class="">Consider this your invite!</p>
     <p class="">You don't have to attend a private event to come hang out at the Lodge. We welcome you to shate our Family Friendly space!
@@ -54,12 +61,12 @@
   </div>
 </div>
 <div class="row align-items-center vh-100">
-  <%= link_to(events_path, class: 'btn') do %>
-    <div class="row bg-primary h-auto p-5 opacity-95">
-      <h1 class="">Events</h1>
+    <div class="row h-auto p-5">
+      <%= link_to(events_path, class: 'btn') do %>
+        <h1 class="">Events</h1>
+      <% end %>
       <p>We would love to host your special event.</p>
       <p>Enjoy our entire space as you and your guests make yourself at home,
       and create lasting memories for your next personal or business get together.</p>
     </div>
-  <% end %>
 </div>

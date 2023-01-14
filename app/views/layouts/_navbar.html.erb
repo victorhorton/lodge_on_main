@@ -1,4 +1,4 @@
-<nav class="navbar p-2 navbar-dark bg-dark">
+<nav class="navbar p-2">
   <div class="container-fluid">
     <%= link_to(
       image_tag('logo_main.png', width: '55x'),
@@ -12,64 +12,63 @@
 
     <button class="navbar-toggler float-end" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><span class="navbar-toggler-icon"></span></button>
 
-    <div class="offcanvas bg-dark offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title text-light" id="offcanvasLabel">Navigation</h5>
+        <h5 class="offcanvas-title" id="offcanvasLabel">Navigation</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <ul class="list-group bg-dark">
-          <li class="list-group-item bg-dark text-light">
+        <ul class="list-group">
+          <li class="list-group-item">
             <%= link_to(
               'Home',
               root_path,
               class: 'nav-link'
             ) %>
           </li>
-          <li class="list-group-item bg-dark text-light">
+          <li class="list-group-item">
             <%= link_to(
               "About Us",
               about_us_path,
               class: 'nav-link'
             ) %>
           </li>
-          <li class="list-group-item bg-dark text-light">
+          <li class="list-group-item">
             <%= link_to(
               "What's on Tap",
               taps_path,
               class: 'nav-link'
             ) %>
           </li>
-          <li class="list-group-item bg-dark text-light">
+          <li class="list-group-item">
             <%= link_to(
               'Events',
               events_path,
               class: 'nav-link'
             ) %>
           </li>
-          <!-- <li class="list-group-item bg-dark text-light"> -->
+          <!-- <li class="list-group-item"> -->
             <%#= link_to(
               'Photos',
               photos_path,
               class: 'nav-link'
             ) %>
           <!-- </li> -->
-          <li class="list-group-item bg-dark text-light">
-            <%= link_to(
-              'Hours',
-              store_hours_path,
-              class: 'nav-link'
-            ) if session[:id].present? %>
-          </li>
           <% if session[:id].present? %>
-            <li class="list-group-item bg-dark text-light">
+            <li class="list-group-item">
+              <%= link_to(
+                'Hours',
+                store_hours_path,
+                class: 'nav-link'
+              ) %>
+            </li>
+            <li class="list-group-item">
               <%= link_to(
                 'User Settings',
                 edit_user_path(session[:id]),
                 class: 'nav-link'
               ) %>
             </li>  
-
           <% end %>    
         </ul>
       </div>

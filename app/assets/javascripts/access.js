@@ -13,6 +13,27 @@
 //   scrollPosition = window.pageYOffset;
 // })
 
+$(document).ready(checkPreferedColorScheme())
+
+function checkPreferedColorScheme () {
+  if (window.matchMedia) {
+    var match = window.matchMedia('(prefers-color-scheme: dark)')
+    toggleDarkMode(match.matches);
+   
+    match.addEventListener('change', e => {
+        toggleDarkMode(match.matches);
+    })
+   
+    function toggleDarkMode(state) {
+        if (state) {
+          document.getElementsByTagName("HTML")[0].dataset.bsTheme = 'dark'
+        } else {
+          document.getElementsByTagName("HTML")[0].dataset.bsTheme = 'light'
+        }
+    }
+  }
+}
+
 $(document).ready(setTimeout(typeWriter, 40))
 
 var i = 0;
